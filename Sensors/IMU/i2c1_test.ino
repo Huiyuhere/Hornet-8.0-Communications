@@ -193,11 +193,11 @@ void printAccel()
   Serial.print(imu.calcAccel(imu.az), 2);
   Serial.println(" g");
 #elif defined PRINT_RAW
-  Serial.print(imu.ax);
-  Serial.print(", ");
-  Serial.print(imu.ay);
-  Serial.print(", ");
-  Serial.println(imu.az);
+  //Serial.print(imu.ax);
+  //Serial.print(", ");
+  //Serial.print(imu.ay);
+  //Serial.print(", ");
+  //Serial.println(imu.az);
 #endif
 
 }
@@ -218,11 +218,11 @@ void printMag()
   Serial.print(imu.calcMag(imu.mz), 2);
   Serial.println(" gauss");
 #elif defined PRINT_RAW
-  Serial.print(imu.mx);
-  Serial.print(", ");
-  Serial.print(imu.my);
-  Serial.print(", ");
-  Serial.println(imu.mz);
+  //Serial.print(imu.mx);
+  //Serial.print(", ");
+  //Serial.print(imu.my);
+  //Serial.print(", ");
+  //Serial.println(imu.mz);
 #endif
 }
 
@@ -258,3 +258,5 @@ void printAttitude(float ax, float ay, float az, float mx, float my, float mz)
   Serial.println(roll, 2);
   Serial.print("Heading: "); Serial.println(heading, 2);
 }
+
+//void readTemp(); //read temp
