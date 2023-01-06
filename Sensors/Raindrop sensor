@@ -1,0 +1,34 @@
+// Sensor pins
+#define sensorPower 7 //to vcc on board
+#define sensorPin 8 // to any digital pins on board
+
+void setup() {
+  pinMode(sensorPower, OUTPUT);
+ //digitalWrite(sensorPower, LOW);// keep the sensor OFF during set up
+  Serial.begin(9600);// adj to baud
+}
+
+void loop() {
+  int val = readSensor();
+  if (val) {
+    Serial.print("Status: no leak");
+  } else{
+    Serial.print("Status: WARNING! It's leaking");
+  }
+  delay(1000);  // read every second
+  Serial.println();
+}
+
+//  This function returns the sensor output
+int readSensor() {
+  digitalWrite(sensorPower, HIGH);  // Turn the sensor ON
+  delay(10);              // Allow power to settle
+  int val = digitalRead(sensorPin); // Read the sensor output
+  digitalWrite(sensorPower, LOW);   // Turn the sensor OFF
+  return val;             // Return the value  
+ 
+}
+
+// val==1: no leak
+// val==0: leak
+// no external lib required
